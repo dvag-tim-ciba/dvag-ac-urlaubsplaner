@@ -1,0 +1,47 @@
+.gradle
+
+/target/
+/logs/
+
+# STS #
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.checkstyle
+*.swp
+*.bak
+
+# IntelliJ IDEA #
+.idea
+*.iws
+*.iml
+*.ipr
+
+# Mac #
+/.DS_Store
+
+# Maven #
+/mvnw
+/mvnw.cmd
+/.mvn/
+/pom.xml.versionsBackup
+!.mvn/wrapper/maven-wrapper.jar
+
+# VS Code #
+.vscode/
+/work/
+
+# http-rest-client #
+*private.env.json
+
+# JVM error logs #
+*hs_err_pid*.log
+/package-lock.json
+
+node_modules
+dist
+coverage
