@@ -20,10 +20,9 @@ class UrlaubsplanerResource : ContainerResponseFilter {
     @Produces(MediaType.APPLICATION_JSON)
     fun postBerechneGesundheitswerte(urlaubsdaten: ArrayList<LocalDate>,rolle: String) {
         val urlaubspruefer = Urlaubspruefer()
-        urlaubspruefer.isUrlaubValide(urlaubsdaten, mapRolle(rolle))
-
-
-
+        if(urlaubspruefer.isUrlaubValide(urlaubsdaten, mapRolle(rolle))){
+            Jahresurlaub(urlaubsdaten)
+        }
     }
 
     fun mapRolle(rolle: String): Rolle{
