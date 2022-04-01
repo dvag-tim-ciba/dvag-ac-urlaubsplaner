@@ -9,6 +9,7 @@ import jakarta.ws.rs.container.ContainerResponseFilter
 import jakarta.ws.rs.core.MediaType
 import jakarta.ws.rs.ext.Provider
 import java.io.IOException
+import java.time.LocalDate
 
 
 @Path("")
@@ -17,8 +18,16 @@ class UrlaubsplanerResource : ContainerResponseFilter {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    fun postBerechneGesundheitswerte(): String {
-        return "Hallo"
+    fun postBerechneGesundheitswerte(urlaubsdaten: ArrayList<LocalDate>,rolle: String) {
+        val urlaubspruefer = Urlaubspruefer()
+        urlaubspruefer.isUrlaubValide(urlaubsdaten, mapRolle(rolle))
+
+
+
+    }
+
+    fun mapRolle(rolle: String): Rolle{
+        return Rolle.valueOf(rolle)
     }
 
     @Throws(IOException::class)
