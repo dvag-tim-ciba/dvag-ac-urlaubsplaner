@@ -2,7 +2,8 @@ import com.dvag.urlaubsplaner.Jahresurlaub
 import com.dvag.urlaubsplaner.Rolle
 import com.dvag.urlaubsplaner.Urlaubspruefer
 import org.junit.Test
-import org.junit.Assert
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import java.time.LocalDate
 
 class UrlaubsprueferTest {
@@ -16,7 +17,8 @@ class UrlaubsprueferTest {
             Jahresurlaub(LocalDate.of(2022, 2, 1), LocalDate.of(2022, 2, 15)),
             Jahresurlaub(LocalDate.of(2022, 3, 1), LocalDate.of(2022, 3, 5))
         )
-        Assert.assertTrue(urlaubspruefer.isUrlaubValide(mutableList, Rolle.AZUBI))
+
+        assertTrue(urlaubspruefer.isUrlaubValide(mutableList, Rolle.AZUBI))
     }
 
     @Test
@@ -26,7 +28,7 @@ class UrlaubsprueferTest {
             Jahresurlaub(LocalDate.of(2022, 2, 1), LocalDate.of(2022, 2, 15)),
             Jahresurlaub(LocalDate.of(2022, 3, 1), LocalDate.of(2022, 3, 5))
         )
-        Assert.assertTrue(urlaubspruefer.isUrlaubValide(mutableList, Rolle.AZUBI))
+        assertFalse(urlaubspruefer.isUrlaubValide(mutableList, Rolle.AZUBI))
     }
 }
 

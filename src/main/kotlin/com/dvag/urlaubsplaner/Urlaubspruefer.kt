@@ -10,21 +10,23 @@ class Urlaubspruefer {
 
     private fun isUrlaubsdauerValide(urlaubszeiten: MutableList<Jahresurlaub>): Boolean {
         var urlaubstage = 0
-        var zaehler = 0
-        for (eintraege in urlaubszeiten) {
-            println(urlaubstage)
-            urlaubstage += (ChronoUnit.DAYS.between(urlaubszeiten[zaehler].anfangsdatum, urlaubszeiten[zaehler].enddatum).toInt()+1)
-            println(urlaubstage)
-            zaehler++
+        var schleifendurchlaufsZaehler = 0
+        for (jahresurlaubObjekt in urlaubszeiten) {
+            urlaubstage += (ChronoUnit.DAYS.between(
+                urlaubszeiten[schleifendurchlaufsZaehler].anfangsdatum,
+                urlaubszeiten[schleifendurchlaufsZaehler].enddatum
+            ).toInt() + 1)
+            schleifendurchlaufsZaehler++
         }
         return urlaubstage == 30
     }
 
-private fun isUrlaubFuerAzubisInFerien(urlaubszeiten: MutableList<Jahresurlaub>): Boolean {
-    return true
-}
-
-private fun isUrlaubszeitNichMehrfach(urlaubszeiten: MutableList<Jahresurlaub>): Boolean {
-    return true
-}
+    //TODO
+    private fun isUrlaubFuerAzubisInFerien(urlaubszeiten: MutableList<Jahresurlaub>): Boolean {
+        return true
+    }
+    //TODO
+    private fun isUrlaubszeitNichMehrfach(urlaubszeiten: MutableList<Jahresurlaub>): Boolean {
+        return true
+    }
 }

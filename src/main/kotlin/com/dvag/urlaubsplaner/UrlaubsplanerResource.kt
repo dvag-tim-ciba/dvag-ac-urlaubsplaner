@@ -22,7 +22,7 @@ class UrlaubsplanerResource : ContainerResponseFilter {
     }
 
     fun mapRolle(rolle: String): Rolle{
-        return Rolle.valueOf(rolle)
+        return Rolle.valueOf(rolle.uppercase())
     }
 
     @Throws(IOException::class)
